@@ -1,19 +1,17 @@
-const { bibat } = require("../middleware/check");
 import { Router } from "express";
+import { get, detail, add, remove, update } from "../controller/products"
+import { bibat } from "../midddleware/check"
 
-const route = Router();
+const router = Router();
 
+router.get("/product", get);
 
-route.get("/product", (req, res)=>{
-    const products = [{id: 1, name: "Thanh"}]
-    res.json(products)
-})
+router.get("/product/:id", detail)
 
+router.post("/product", bibat, add);
 
-route.post("/product", bibat, (req, res)=>{
-    const products = [{id: 1, name: "Thanh"}]
-    products.push(req.body);
-    res.json(products)
-})
+router.delete("/product/:id", bibat, remove);
 
-module.exports = route;
+router.put("/product/:id", bibat, update)
+
+export default router
