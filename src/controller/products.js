@@ -5,6 +5,7 @@ export const get = async (req, res)=>{ //get all
     try {
         const product = await products.find().exec();
         res.json(product)
+
     } catch (error) {
         res.status(400).json({
             message: "Thêm sản phẩm không thành công"
@@ -21,6 +22,7 @@ export const add = async (req, res)=>{ //create
     req.body.slug = slugify(req.body.name)
     try {
         const product = await new products(req.body).save();
+        console.log(req.body);
         res.json(product)
     } catch (error) {
         console.log(error);

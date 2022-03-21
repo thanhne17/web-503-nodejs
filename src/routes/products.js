@@ -6,6 +6,8 @@ const router = Router();
 
 router.get("/product", get);
 
+router.get("/", get);
+
 router.get("/product/:id", detail)
 
 router.post("/product", bibat, add);
