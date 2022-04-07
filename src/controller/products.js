@@ -13,9 +13,13 @@ export const get = async (req, res)=>{ //get all
     }
 };
 
-export const detail =  (req, res)=>{ //get a
-    const product = products.find(Element => Element.id === +req.params.id)
-    res.json(product)
+export const detail =async (req, res)=>{ //get a
+    try {
+        const product = await products.findOne({_id: req.params.id})
+        res.json(product)
+    } catch (error) {
+        
+    }
 };
 
 export const add = async (req, res)=>{ //create
@@ -43,8 +47,8 @@ export const remove = async (req, res)=>{ //delete
 
 export const update = async (req,res)=>{ //update
     try {
-        const products = await products.findByIdAndUpdate({_id: req.params.id}, req.body, { new: true}).exec()
-        res.json(products)
+        const product = await products.findByIdAndUpdate({_id: req.params.id}, req.body, { new: true}).exec()
+        res.json(product)
     } catch (error) {
         
     }
