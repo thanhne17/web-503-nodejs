@@ -45,7 +45,7 @@ export const signin = async (req, res) => {
     const token = jwt.sign({_id: User._id}, "123456", {expiresIn: 60 * 60})
     return res.json({
         token,
-        User: {
+        data: {
             _id: User._id,
             email: User.email,
             name: User.name,

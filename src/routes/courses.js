@@ -4,7 +4,7 @@ import { add, detail, getAll, remove, update } from "../controller/coureses";
 const route = Router();
 
 route.get("/course", getAll);
-route.get("/course/:id", detail)
+route.get("/course/:slug", detail)
 route.post("/course", add);
 route.delete("/course/:id", remove)
 route.put("/course/:id", update)

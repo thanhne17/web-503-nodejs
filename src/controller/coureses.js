@@ -12,7 +12,8 @@ export const getAll = async (req, res) => {
 
 export const detail = async (req, res) => {
     try {
-        const courses = await Coureses.findOne({_id: req.params.id}).exec();
+        const courses = await Coureses.findOne({slug: req.params.slug}).exec();
+        console.log(req.params);
         res.json(courses)
     } catch (error) {
         
