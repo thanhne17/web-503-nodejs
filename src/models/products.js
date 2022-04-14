@@ -18,6 +18,8 @@ const productSchema = mongoose.Schema({
         type: ObjectId,
         ref: "Category"
     }
-}, { timestamps: true} )
+}, { timestamps: true });
+
+productSchema.index({ "$**": "text" })
 
 export default mongoose.model("product", productSchema)

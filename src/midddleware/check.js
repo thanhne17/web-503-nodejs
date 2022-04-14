@@ -18,10 +18,9 @@ export const requireSignIN = expressJWT ({
 })
 
 export const isAuth = (req,res,next) => {
-    console.log(req);
-    const user = req.profile._id === req.auth._id;
-    console.log(req.auth)
-    console.log(req.profile);
+    console.log(req.params)
+    console.log(req.profile._id);
+    const user = req.profile._id === req.params;
     if (!user) {
         return res.status(402).json({
             message: "Ban khong duoc phep truy cap"

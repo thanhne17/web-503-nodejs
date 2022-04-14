@@ -5,7 +5,7 @@ const router = Router();
 
 router.get("/video", getAllVideo);
 
-router.get("/video/:id", getOneVideo);
+router.get("/video/:slug", getOneVideo);
 
 router.post("/video", addVideo);
 
